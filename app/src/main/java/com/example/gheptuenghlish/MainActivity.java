@@ -160,23 +160,23 @@ public class MainActivity extends AppCompatActivity {
         if (firstCard == null) {
             firstCard = card;
             firstValue = word;
-            setCardBorder(card, Color.parseColor("#FF9800"));
+            setVienThe(card, Color.parseColor("#FF9800"));
             return;
         }
 
         if (card == firstCard) {
-            clearCardBorder(card);
+            clearVienThe(card);
             firstCard = null;
             return;
         }
 
-        setCardBorder(card, Color.parseColor("#FF9800"));
+        setVienThe(card, Color.parseColor("#FF9800"));
 
         boolean ok = checkMatch(firstValue, word);
 
         if (ok) {
-            setCardBorder(firstCard, Color.GREEN);
-            setCardBorder(card, Color.GREEN);
+            setVienThe(firstCard, Color.GREEN);
+            setVienThe(card, Color.GREEN);
 
             matchedPairs++;
             if (matchedPairs == totalPairsOnScreen) {
@@ -191,12 +191,12 @@ public class MainActivity extends AppCompatActivity {
             }, 350);
 
         } else {
-            setCardBorder(firstCard, Color.RED);
-            setCardBorder(card, Color.RED);
+            setVienThe(firstCard, Color.RED);
+            setVienThe(card, Color.RED);
 
             handler.postDelayed(() -> {
-                clearCardBorder(firstCard);
-                clearCardBorder(card);
+                clearVienThe(firstCard);
+                clearVienThe(card);
                 firstCard = null;
             }, 600);
         }
@@ -208,14 +208,14 @@ public class MainActivity extends AppCompatActivity {
                 || (pairs.containsKey(w2) && pairs.get(w2).equals(w1));
     }
 
-    private void setCardBorder(MaterialCardView card, int color) {
+    private void setVienThe(MaterialCardView card, int color) {
         card.setCardBackgroundColor(Color.WHITE);
         card.setCardElevation(8f);
         card.setStrokeColor(color);
         card.setStrokeWidth(6);
     }
 
-    private void clearCardBorder(MaterialCardView card) {
+    private void clearVienThe(MaterialCardView card) {
         card.setStrokeColor(Color.TRANSPARENT);
         card.setStrokeWidth(0);
     }
