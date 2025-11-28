@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GhepTuEnghlish">
         <activity
+            android:name=".WinActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.activities.SuaTuActivity"
             android:exported="false" />
         <activity
